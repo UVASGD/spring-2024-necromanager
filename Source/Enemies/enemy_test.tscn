@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://cxfv2j8yu087p"]
+
+[ext_resource type="Script" path="res://Source/Enemies/enemy_test.gd" id="1_2on24"]
+[ext_resource type="Texture2D" uid="uid://67udds3k6tg0" path="res://Assets/Art/icon.svg" id="1_3005s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_raa8s"]
+size = Vector2(86, 86)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_afgdr"]
+size = Vector2(98, 98)
+
+[node name="EnemyTest" type="CharacterBody2D"]
+collision_layer = 8
+script = ExtResource("1_2on24")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0.27451, 0.211765, 1)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("1_3005s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_raa8s")
+
+[node name="Hbox" type="Area2D" parent="."]
+collision_layer = 24
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hbox"]
+shape = SubResource("RectangleShape2D_afgdr")
+
+[connection signal="area_entered" from="Hbox" to="." method="_on_hbox_area_entered"]

@@ -1,0 +1,10 @@
+extends Node
+
+var player_dir: Vector2
+var player_cur_hp: int
+var is_door_open
+
+func _init():
+	player_dir = Vector2(0, -1)
+	player_cur_hp = 6
+	is_door_open = [1]
