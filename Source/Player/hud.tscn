@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://ciem1ncgyisw5"]
+
+[ext_resource type="Texture2D" uid="uid://dblo4cgt4x2g5" path="res://Assets/Art/hearts.png" id="1_6082t"]
+
+[node name="hud" type="ColorRect"]
+process_mode = 3
+
+[node name="HP" type="Sprite2D" parent="."]
+position = Vector2(125, 55)
+scale = Vector2(4, 4)
+texture = ExtResource("1_6082t")
+hframes = 7
+frame = 6

@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://cwd7lketggpyw"]
+
+[ext_resource type="Script" path="res://Source/Entities/door.gd" id="1_gy453"]
+[ext_resource type="Texture2D" uid="uid://bebjfye7svju7" path="res://Assets/Art/Door.png" id="1_tx781"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h6g63"]
+size = Vector2(64, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x4qr6"]
+size = Vector2(2.66667, 23.3333)
+
+[node name="Door" type="StaticBody2D"]
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_gy453")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_tx781")
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 7.6)
+shape = SubResource("RectangleShape2D_h6g63")
+disabled = true
+
+[node name="ExitTrigger" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitTrigger"]
+position = Vector2(-5.96046e-08, 9.66667)
+shape = SubResource("RectangleShape2D_x4qr6")
+
+[node name="ExitTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="EnterTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="area_entered" from="ExitTrigger" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="ExitTrigger" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="ExitTimer" to="." method="_on_exit_timer_timeout"]
+[connection signal="timeout" from="EnterTimer" to="." method="_on_enter_timer_timeout"]
