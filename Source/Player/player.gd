@@ -21,7 +21,6 @@ extends CharacterBody2D
 
 func _ready():
 	add_to_group("Player")
-	hud.frame = Data.player_cur_hp
 
 func _physics_process(_delta):
 	if(!move_lock): dir = Vector2(Input.get_axis("Left", "Right"), Input.get_axis("Up", "Down"))
@@ -38,8 +37,6 @@ func _physics_process(_delta):
 			move_lock = false
 
 func _input(event):
-	if(event.is_action_pressed("Escape")):
-		get_tree().quit()
 	if(!move_lock):
 		if(event.is_action_pressed("Charge") and !proj_inst): 
 			ranged_timer.start()

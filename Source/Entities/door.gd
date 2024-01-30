@@ -18,10 +18,9 @@ extends StaticBody2D
 @onready var enter_timer = $EnterTimer
 
 func _ready():
-	sprite.frame = Data.is_door_open[door_num]
+	sprite.frame = Data.is_door_open[door_num] 
 	if(Data.player_dir == -dir):
 		player.global_position = self.global_position
-		#call_deferred("enter_timer.start")
 		enter_timer.start()
 	else:
 		collision.set_deferred("disabled", false)
