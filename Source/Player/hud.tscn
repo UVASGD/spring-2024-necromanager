@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://ciem1ncgyisw5"]
+[gd_scene load_steps=3 format=3 uid="uid://ciem1ncgyisw5"]
 
 [ext_resource type="Texture2D" uid="uid://dblo4cgt4x2g5" path="res://Assets/Art/hearts.png" id="1_6082t"]
+[ext_resource type="Script" path="res://Source/Player/hud.gd" id="1_cedp1"]
 
 [node name="hud" type="ColorRect"]
 process_mode = 3
+script = ExtResource("1_cedp1")
 
 [node name="HP" type="Sprite2D" parent="."]
 position = Vector2(125, 55)

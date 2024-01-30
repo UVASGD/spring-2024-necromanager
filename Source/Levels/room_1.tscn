@@ -360,6 +360,7 @@ sources/1 = SubResource("TileSetAtlasSource_t1x45")
 [node name="Room1" type="Node2D"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3
 
 [node name="hud" parent="CanvasLayer" instance=ExtResource("1_xp44m")]
 
@@ -377,12 +378,11 @@ layer_2/tile_data = PackedInt32Array()
 [node name="Player" parent="." instance=ExtResource("3_1jd8q")]
 position = Vector2(880, 1200)
 
-[node name="Camera2D" parent="Player" index="1"]
+[node name="Camera2D" parent="Player" index="2"]
 limit_left = -500
 limit_top = -300
 limit_right = 2250
 limit_bottom = 1550
-editor_draw_limits = true
 
 [node name="DoorN" parent="." instance=ExtResource("4_0lqxq")]
 position = Vector2(880, -88)

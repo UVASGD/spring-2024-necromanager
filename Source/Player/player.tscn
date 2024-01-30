@@ -20,6 +20,7 @@ texture = ExtResource("1_5wk1t")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.75, 0.75)
+editor_draw_limits = true
 
 [node name="Hurtbox" type="Area2D" parent="."]
 process_mode = 3
