@@ -11,6 +11,7 @@ extends CharacterBody2D
 @onready var melee_inst
 @onready var last_dir = dir #this can be changed when we work out animations
 @onready var boost = 0
+@onready var prev_pos
 
 #nodes and scenes
 @onready var hurtbox = $Hurtbox
