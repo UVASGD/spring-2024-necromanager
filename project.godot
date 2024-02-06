@@ -19,10 +19,6 @@ config/icon="res://Assets/Art/icon.svg"
 
 Data="*res://data.gd"
 
-[display]
-
-window/size/mode=4
-
 [input]
 
 Left={

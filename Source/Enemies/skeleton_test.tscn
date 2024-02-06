@@ -8,6 +8,7 @@ size = Vector2(98, 98)
 
 [node name="SkeletonTest" type="CharacterBody2D"]
 modulate = Color(0.298039, 0.298039, 0.298039, 1)
+motion_mode = 1
 script = ExtResource("1_r7uro")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
