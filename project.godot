@@ -69,3 +69,4 @@ Melee={
 2d_physics/layer_3="Player Attack"
 2d_physics/layer_4="Enemy"
 2d_physics/layer_5="Enemy Attack"
+2d_physics/layer_6="Skeleton"
