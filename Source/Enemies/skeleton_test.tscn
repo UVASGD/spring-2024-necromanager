@@ -8,6 +8,8 @@ size = Vector2(98, 98)
 
 [node name="SkeletonTest" type="CharacterBody2D"]
 modulate = Color(0.298039, 0.298039, 0.298039, 1)
+collision_layer = 32
+collision_mask = 3
 motion_mode = 1
 script = ExtResource("1_r7uro")
 

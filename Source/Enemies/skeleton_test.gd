@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @onready var resurrected: bool = false
 @onready var player = get_parent().get_node("Player")
+@onready var dir
 
 func _ready():
 	modulate.a = 0.5
