@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://x25007njhfsu"]
+[gd_scene load_steps=11 format=3 uid="uid://x25007njhfsu"]
 
 [ext_resource type="Texture2D" uid="uid://cjx2jo27n864b" path="res://Assets/Art/0x72_DungeonTilesetII_v1.6.png" id="1_2fnku"]
 [ext_resource type="PackedScene" uid="uid://ciem1ncgyisw5" path="res://Source/Player/hud.tscn" id="1_xp44m"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bevn3dj176sb3" path="res://Source/Player/player.tscn" id="3_1jd8q"]
 [ext_resource type="PackedScene" uid="uid://cwd7lketggpyw" path="res://Source/Entities/door.tscn" id="4_0lqxq"]
 [ext_resource type="PackedScene" uid="uid://scotvgb21d2j" path="res://Source/Entities/first_door.tscn" id="5_ksk5w"]
+[ext_resource type="PackedScene" uid="uid://ityer20jk7qm" path="res://Source/Entities/button.tscn" id="7_shf08"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m5wpg"]
 texture = ExtResource("1_2fnku")
@@ -394,5 +395,8 @@ dir = Vector2(0, -1)
 position = Vector2(880, 1347.3)
 rotation = 3.14159
 scale = Vector2(5, 5)
+
+[node name="Button" parent="." instance=ExtResource("7_shf08")]
+position = Vector2(874, 1035)
 
 [editable path="Player"]
