@@ -88,6 +88,15 @@ func recieve_damage(damage, knockback):
 	boost = -1500
 	dir = -knockback
 
+func recover_hp(hp_amount):
+	if(cur_hp <= max_hp - hp_amount):
+		cur_hp += hp_amount
+	else:
+		cur_hp = max_hp
+	Data.player_cur_hp = cur_hp
+	hud.frame = Data.player_cur_hp
+	
+
 func die():
 	print("player died")
 	get_tree().paused = true
