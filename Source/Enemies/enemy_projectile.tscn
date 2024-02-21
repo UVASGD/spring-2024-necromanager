@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://mvl1283uj0p5"]
+
+[ext_resource type="Script" path="res://Source/Enemies/enemy_projectile.gd" id="1_gxjxg"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_3mdex"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wk7v6"]
+size = Vector2(31, 31)
+
+[node name="EnemyProjectile" type="Area2D"]
+collision_layer = 24
+collision_mask = 3
+script = ExtResource("1_gxjxg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, 1.5)
+scale = Vector2(30, 31)
+texture = SubResource("CanvasTexture_3mdex")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 1)
+shape = SubResource("RectangleShape2D_wk7v6")
+debug_color = Color(0.439216, 0, 0.690196, 1)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
