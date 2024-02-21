@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://ckh73brycdqym"]
+
+[ext_resource type="Script" path="res://Source/Enemies/projectile_enemy_test.gd" id="1_odlhy"]
+[ext_resource type="Texture2D" uid="uid://67udds3k6tg0" path="res://Assets/Art/icon.svg" id="2_tpmlx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ylisd"]
+size = Vector2(9.4, 9.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hxr7b"]
+size = Vector2(9.5, 9.6)
+
+[node name="ProjectileEnemyTest" type="CharacterBody2D"]
+scale = Vector2(10, 10)
+collision_layer = 8
+collision_mask = 9
+script = ExtResource("1_odlhy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.075, 0.075)
+texture = ExtResource("2_tpmlx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.90735e-07, 0.15)
+shape = SubResource("RectangleShape2D_ylisd")
+
+[node name="HBox" type="Area2D" parent="."]
+collision_layer = 24
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HBox"]
+position = Vector2(0.05, 5.72204e-07)
+shape = SubResource("RectangleShape2D_hxr7b")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[connection signal="area_entered" from="HBox" to="." method="_on_h_box_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
