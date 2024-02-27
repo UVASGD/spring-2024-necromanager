@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://ba38ms4ewkvxw"]
+
+[ext_resource type="Script" path="res://Source/Entities/spikes.gd" id="1_ijkr2"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_y0odi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3v0cp"]
+size = Vector2(98, 96)
+
+[node name="Spikes" type="Area2D"]
+modulate = Color(0.407843, 0.407843, 0.407843, 1)
+collision_layer = 16
+collision_mask = 2
+script = ExtResource("1_ijkr2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -4.76837e-07)
+scale = Vector2(98, 96)
+texture = SubResource("CanvasTexture_y0odi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_3v0cp")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
