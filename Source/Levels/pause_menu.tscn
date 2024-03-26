@@ -1,0 +1,51 @@
+[gd_scene load_steps=2 format=3 uid="uid://biidwlrebtbd1"]
+
+[ext_resource type="Script" path="res://Source/Levels/pause_menu.gd" id="1_lklvs"]
+
+[node name="PauseMenu" type="ColorRect"]
+process_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.156863)
+script = ExtResource("1_lklvs")
+
+[node name="TextEdit" type="TextEdit" parent="."]
+layout_mode = 0
+offset_left = 484.0
+offset_top = 104.0
+offset_right = 669.0
+offset_bottom = 188.0
+theme_override_font_sizes/font_size = 50
+text = "Paused"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 331.0
+offset_top = 371.0
+offset_right = 845.0
+offset_bottom = 554.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Resume" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 45
+text = "Resume"
+
+[node name="QuitMenu" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 45
+text = "Quit to Main Menu"
+
+[node name="QuitDesktop" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 45
+text = "Quit to Desktop"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/QuitMenu" to="." method="_on_quit_menu_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/QuitDesktop" to="." method="_on_quit_desktop_pressed"]

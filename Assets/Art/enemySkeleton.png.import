@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bebjfye7svju7"
-path="res://.godot/imported/Door.PNG-9e18258e9ac672b3160de6159dfeed79.ctex"
+uid="uid://cspeacgn35iac"
+path="res://.godot/imported/enemySkeleton.png-e6333fdf5c427421bcf89fba6768eb39.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Door.PNG"
-dest_files=["res://.godot/imported/Door.PNG-9e18258e9ac672b3160de6159dfeed79.ctex"]
+source_file="res://Assets/Art/enemySkeleton.png"
+dest_files=["res://.godot/imported/enemySkeleton.png-e6333fdf5c427421bcf89fba6768eb39.ctex"]
 
 [params]
 

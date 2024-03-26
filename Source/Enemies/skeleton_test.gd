@@ -1,13 +1,16 @@
 extends CharacterBody2D
 
 @onready var player = get_parent().get_node("Player")
-@onready var dir
+@onready var dir = Vector2(0,0)
 @onready var state = 0 #0 unressurected, 1 is mirror, 2 is follow
 @onready var assembling = false
 @onready var target_pos = Vector2(0,0)
 @onready var skel_num = 0
 
 @onready var col = $CollisionShape2D
+
+@onready var animation_tree = $AnimationTree
+@onready var state_machine = animation_tree.get("parameters/playback")
 
 func _ready():
 	modulate.a = 0.5
@@ -16,7 +19,8 @@ func _ready():
 func _physics_process(_delta):
 	if(!player.move_lock):
 		if(state == 1):
-			velocity = (player.dir * player.speed)
+			dir = player.dir
+			velocity = (dir * player.speed)
 			if(abs(player.dir.x)+abs(player.dir.y) == 2): velocity *= 1/sqrt(2)
 			move_and_slide()
 		elif(state == 2 && assembling):
@@ -40,6 +44,7 @@ func _physics_process(_delta):
 				position = pos
 				col.reparent(player, true)
 			else: global_position += Vector2(.1,.1)
+	update_animation()
 				
 func _input(event):
 	if(event.is_action_pressed("Click")):
@@ -78,3 +83,10 @@ func add():
 			skel_num = i
 			player.shuffle()
 			break
+
+func update_animation():
+	if(dir != Vector2.ZERO):
+		animation_tree.set("parameters/Idle/blend_position", dir)
+		animation_tree.set("parameters/Move/blend_position", dir)
+		state_machine.travel("Move")
+	else: state_machine.travel("Idle")

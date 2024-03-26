@@ -11,13 +11,18 @@ config_version=5
 [application]
 
 config/name="Necromanager"
-run/main_scene="res://Source/Levels/room_1.tscn"
+run/main_scene="res://Source/Levels/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://Assets/Art/icon.svg"
 
 [autoload]
 
 Data="*res://data.gd"
+
+[display]
+
+window/size/mode=4
+window/stretch/mode="viewport"
 
 [input]
 
@@ -80,3 +85,7 @@ Two={
 2d_physics/layer_4="Enemy"
 2d_physics/layer_5="Enemy Attack"
 2d_physics/layer_6="Skeleton"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

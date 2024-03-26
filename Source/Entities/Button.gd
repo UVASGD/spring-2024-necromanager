@@ -1,22 +1,28 @@
 extends Area2D
-@onready var player = get_parent().get_parent().get_node("Player")
+#@onready var player = get_parent().get_node("Player")
+@onready var sprite = $Sprite2D
+@onready var pressed = false
+@export var door: Node2D
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	add_to_group("buttons")
+
+func is_pressed():
+	if !pressed:
+		door.buttons_pressed = false
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func _on_body_entered(body):
+	if !pressed:
+		sprite.frame = 1
+		pressed = true
+		door.buttons_pressed = true
+		get_tree().call_group("buttons", "is_pressed")
+		if door.buttons_pressed:
+			door.open_door()
 
-func on_area_entry(body):
-	pass
-
-func _on_area_entered(area):
-	print("entered")
-	var knockback = Vector2(20, 0)
-	player.recieve_damage(1, knockback);
-	print("Button is pressed. Button is agro.")
-	pass # Replace with function body.
+func _on_body_exited(body):
+	if pressed:
+		sprite.frame = 0
+		pressed = false
+		door.close_door()

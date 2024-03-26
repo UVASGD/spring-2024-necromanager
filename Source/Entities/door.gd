@@ -8,6 +8,7 @@ extends StaticBody2D
 #variables
 @onready var entered: bool = false
 @onready var open: bool = Data.is_door_open[door_num]
+@onready var buttons_pressed: bool = false
 
 #nodes
 @onready var player = get_parent().get_node("Player")
@@ -53,7 +54,10 @@ func _on_enter_timer_timeout():
 	player.move_lock = false
 	collision.set_deferred("disabled", false)
 	get_tree().call_group("Enemy", "pause_unpause")
+	if(door_num == 0):
+		close_door()
 
 
 func _on_exit_timer_timeout():
 	get_tree().change_scene_to_file.bind(next_room).call_deferred()
+	
