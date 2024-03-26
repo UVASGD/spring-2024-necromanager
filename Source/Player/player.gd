@@ -22,6 +22,9 @@ extends CharacterBody2D
 @onready var projectile : PackedScene = preload("res://Source/Player/projectile.tscn")
 @onready var melee : PackedScene = preload("res://Source/Player/melee.tscn")
 
+@onready var animation_tree = $AnimationTree
+@onready var state_machine = animation_tree.get("parameters/playback")
+
 func _ready():
 	add_to_group("Player")
 
@@ -39,6 +42,10 @@ func _physics_process(_delta):
 			boost = 0
 			move_lock = false
 			inv = false
+	if(skel_state == 2):
+		for i in range(3):
+			if(skeletons[i] != null): skeletons[i].dir = dir
+	update_animation()
 
 func _input(event):
 	if(!move_lock):
@@ -114,6 +121,16 @@ func shuffle():
 
 func get_num_skeletons():
 	var count = 0
-	for i in range(3):
-		if(skeletons[i] != null): count+=1
-	return count
+	if skel_state == 2:
+		return 0
+	else:
+		for i in range(3):
+			if(skeletons[i] != null): count+=1
+		return count
+		
+func update_animation():
+	if(dir != Vector2.ZERO):
+		animation_tree.set("parameters/Idle/blend_position", dir)
+		animation_tree.set("parameters/Move/blend_position", dir)
+		state_machine.travel("Move")
+	else: state_machine.travel("Idle")

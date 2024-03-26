@@ -375,4 +375,7 @@ layer_2/tile_data = PackedInt32Array()
 [node name="Player" parent="." instance=ExtResource("4_767xu")]
 position = Vector2(880, 1200)
 
+[node name="Sprite2D" parent="Player" index="1"]
+frame = 0
+
 [editable path="Player"]

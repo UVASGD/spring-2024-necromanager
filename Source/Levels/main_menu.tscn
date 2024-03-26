@@ -1,3 +1,57 @@
-[gd_scene format=3 uid="uid://bxbq52fhdjtj7"]
+[gd_scene load_steps=3 format=3 uid="uid://bxbq52fhdjtj7"]
 
-[node name="MainMenu" type="Node2D"]
+[ext_resource type="Script" path="res://Source/Levels/main_menu.gd" id="1_2q6ot"]
+[ext_resource type="Texture2D" uid="uid://br1vn44o37tqr" path="res://Assets/Art/crazy_bonez.png" id="2_vqt7b"]
+
+[node name="MainMenu" type="ColorRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.647059, 0.305882, 0.188235, 0)
+script = ExtResource("1_2q6ot")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(576, 320)
+scale = Vector2(2.4383, 1.16667)
+texture = ExtResource("2_vqt7b")
+
+[node name="TextEdit" type="TextEdit" parent="."]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 90.0
+offset_right = 169.0
+offset_bottom = 126.0
+scale = Vector2(5, 5)
+text = "Necromanager"
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 846.0
+offset_top = 399.0
+offset_right = 1037.0
+offset_bottom = 557.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2"]
+layout_mode = 2
+alignment = 1
+
+[node name="Play" type="Button" parent="MarginContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Play"
+
+[node name="Credits" type="Button" parent="MarginContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Credits"
+
+[node name="Quit" type="Button" parent="MarginContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Quit"
+
+[connection signal="pressed" from="MarginContainer2/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MarginContainer2/VBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="MarginContainer2/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
